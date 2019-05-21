@@ -2,6 +2,7 @@ const Express = require('express');
 const ExpressGraphQL = require('express-graphql');
 const Mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
 const {
   GraphQLID,
   GraphQLString,
@@ -13,8 +14,7 @@ const {
 
 const app = Express();
 
-const db =
-  'mongodb+srv://moon:zion1234@gql-aj-decgl.mongodb.net/test1?retryWrites=true';
+const db = process.env.DB_HOST;
 Mongoose.connect(db, {
   useNewUrlParser: true,
   useCreateIndex: true
